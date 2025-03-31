@@ -1,0 +1,54 @@
+.grid-container {
+  display: grid;
+
+  /* 열 너비 지정 (작성한 너비의 갯수에 따라 한줄에 배치되는 아이템의 수가 결정) */
+  /* grid-template-columns: 100px 100px 100px; */
+  grid-template-columns: repeat(3, 100px);
+
+  /* 행 높이 지정 */
+  /* grid-template-rows: 100px 100px; */
+  /* grid-template-rows: repeat(2, 100px); */
+
+  /* 최소 크기와 최대 크기를 지정해주는 방법 */
+  /* grid-template-rows: minmax(100px, auto) 100px; */
+  /* minmax와 repeat를 동시 사용 가능 */
+  grid-template-rows: repeat(2, minmax(100px, auto) 100px);
+
+  /* 데이터가 많아짐에 따라 유동적으로 늘어나는 행에 대응할 수 있음 */
+  grid-auto-rows: 100px;
+
+  /* 열과 열 사이, 행과 행 간격 설정 */
+  column-gap: 1rem;
+  row-gap: 1rem;
+
+  /* grid cell을 어떻게 정렬할지 설정(수직방향) */
+  /* 기본값은 stretch(item 영역의 세로길이를 모두 채우게끔 늘어남) */
+  /* align-items: start; */
+
+  /* grid cell을 어떻게 정렬할지 설정(수평방향) */
+  /* 기본값은 stretch(item 영역을 가로길이를 모두 채우게끔 늘어남) */
+  /* justify-items: start; */
+}
+.grid-item {
+  background-color: pink;
+}
+.grid-item:nth-child(2n) {
+  background-color: skyblue;
+}
+.grid-item:nth-child(3n) {
+  background-color: lightsalmon;
+}
+.grid-item:nth-child(4n) {
+  background-color: lightgreen;
+}
+.item2 {
+  /* 2번 아이템에 대해, column line  2번부터 4번까지, row line 1번부터 3번까지의 영역을 차지하게 함  */
+  /* grid-column-start: 2;
+  grid-column-end: 4;
+  grid-row-start: 1;
+  grid-row-end: 3; */
+
+  /* 2번 아이템에 대해, 2번 열에서부터 2칸, 1번 행에서부터 2칸까지의 영역을 차지하게 함 */
+  grid-column: 2 / span 2;
+  grid-row: 1 / span 2;
+}
